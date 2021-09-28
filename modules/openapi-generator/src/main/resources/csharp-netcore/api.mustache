@@ -344,7 +344,15 @@ namespace {{packageName}}.{{apiPackage}}
             {{#formParams}}
             {{#required}}
             {{#isFile}}
+            {{#isArray}}
+            foreach (var x in {{paramName}})
+            {
+                localVarRequestOptions.FileParameters.Add("{{baseName}}", x);
+            }
+            {{/isArray}}
+            {{^isArray}}
             localVarRequestOptions.FileParameters.Add("{{baseName}}", {{paramName}});
+            {{/isArray}}
             {{/isFile}}
             {{^isFile}}
             localVarRequestOptions.FormParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.ParameterToString({{paramName}})); // form parameter
@@ -354,7 +362,15 @@ namespace {{packageName}}.{{apiPackage}}
             if ({{paramName}} != null)
             {
                 {{#isFile}}
+                {{#isArray}}
+                foreach (var x in {{paramName}})
+                {
+                    localVarRequestOptions.FileParameters.Add("{{baseName}}", x);
+                }
+                {{/isArray}}
+                {{^isArray}}
                 localVarRequestOptions.FileParameters.Add("{{baseName}}", {{paramName}});
+                {{/isArray}}
                 {{/isFile}}
                 {{^isFile}}
                 localVarRequestOptions.FormParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.ParameterToString({{paramName}})); // form parameter
@@ -543,7 +559,15 @@ namespace {{packageName}}.{{apiPackage}}
             {{#formParams}}
             {{#required}}
             {{#isFile}}
+            {{#isArray}}
+            foreach (var x in {{paramName}})
+            {
+                localVarRequestOptions.FileParameters.Add("{{baseName}}", x);
+            }
+            {{/isArray}}
+            {{^isArray}}
             localVarRequestOptions.FileParameters.Add("{{baseName}}", {{paramName}});
+            {{/isArray}}
             {{/isFile}}
             {{^isFile}}
             localVarRequestOptions.FormParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.ParameterToString({{paramName}})); // form parameter
@@ -553,7 +577,15 @@ namespace {{packageName}}.{{apiPackage}}
             if ({{paramName}} != null)
             {
                 {{#isFile}}
+                {{#isArray}}
+                foreach (var x in {{paramName}})
+                {
+                    localVarRequestOptions.FileParameters.Add("{{baseName}}", x);
+                }
+                {{/isArray}}
+                {{^isArray}}
                 localVarRequestOptions.FileParameters.Add("{{baseName}}", {{paramName}});
+                {{/isArray}}
                 {{/isFile}}
                 {{^isFile}}
                 localVarRequestOptions.FormParameters.Add("{{baseName}}", {{packageName}}.Client.ClientUtils.ParameterToString({{paramName}})); // form parameter
